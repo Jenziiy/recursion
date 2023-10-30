@@ -34,3 +34,31 @@ function fibsRec(num){
 }
 
 console.log(fibsRec(8));
+
+
+function mergeSort(arr){
+//base 
+  if (arr.length <= 1) return arr;
+//recursion step
+    let middle = Math.floor(arr.length/2);
+  //console.log(middle);
+    let arrLeft = arr.slice(0, middle);
+    let arrRight = arr.slice(middle);
+  console.log(arrLeft,arrRight)
+  return merge(mergeSort(arrLeft), mergeSort(arrRight));
+  }
+
+  function merge (arrLeft, arrRight){
+    let sorted = [];
+  
+    while (arrLeft.length && arrRight.length) {
+      if (arrLeft[0] < arrRight[0]) sorted.push(arrLeft.shift());
+      else sorted.push(arrRight.shift());
+    };
+  
+    return sorted.concat(arrLeft.slice().concat(arrRight.slice()));
+  };
+  
+  const unsortedArray = [5,8,9,3,9,12,18,2,7,2,4];
+
+console.log(mergeSort(unsortedArray));
