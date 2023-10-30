@@ -11,7 +11,7 @@ function fibs(num){
     } else {
       let val = numArray[i+1] + numArray[i];
       numArray.push(val);
-      if (val === 8 ) return numArray;
+      if (val > 8 ) return numArray;
     };
   };
   return numArray;
